@@ -3,11 +3,8 @@
 #include <string.h>
 #include "ListyString.h"
 
-//Farzain Majeed
-//Dr Sean Szumlamnski
-//fa683348
+//By Farzain Majeed
 
-//Credit: Szumlamnski
 node *createNode(char data) {
 	
 	node *ptr = malloc(sizeof(node));
@@ -23,7 +20,6 @@ node *createNode(char data) {
 	return ptr;
 }
 
-//Credit: Szumlamnski
 node *insertAtTail(node *head, char data) {
 
 	node *temp;
@@ -33,12 +29,12 @@ node *insertAtTail(node *head, char data) {
 
 	for(temp = head; temp->next != NULL; temp = temp->next)
        ;
-   //Here we have a tail insert.
+	//Here we have a tail insert.
 	temp->next = createNode(data);
 	return head;
 
 }
-//Credit: Szumlamnski
+
 void printList (node *head) {
 
 	if (head == NULL) {
@@ -60,7 +56,7 @@ node *stringToList(char *str)  {
 	node *head = NULL;
 	
 	for (i = 0; i < strlen(str); i++) {
-	//There is a special case for the head because it has to start somewhere!
+		//There is a special case for the head because it has to start somewhere!
 		if (i == 0) {
 			head = createNode(str[0]);
 			continue;
@@ -209,10 +205,7 @@ node *replaceChar(node *head, char key, char *str) {
 					tempCopy2 = tempCopy2->next;
 					tempCopy = tempCopy->next;
 				}
-
-       			//printf("Temp2Data: %c\n", temp2->data);
-     			//printf("Uh: %c\n", present->next->data);
-
+				
        			tempCopy->next = present;
        			//We need to move the past along!
        			past = tempCopy;
