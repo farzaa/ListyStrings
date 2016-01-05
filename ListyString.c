@@ -47,8 +47,8 @@ void printList (node *head) {
 	}
 
 	printf("\n");
-
 }
+
 //This is where we make our first string a list.
 node *stringToList(char *str)  {
 
@@ -64,10 +64,10 @@ node *stringToList(char *str)  {
 		//I used a tail insert function so that each char goes after the other.
 		insertAtTail(head, str[i]);
 	}
-
 	return head;
 }
 
+//This reverses our list.
 node *reverseList(node *head) {
 
 	//Lets make the past node NULL because, well, there is no previous node.
@@ -91,11 +91,10 @@ node *reverseList(node *head) {
     }
     //At the end of the loop, past will be the start of our list.
     head = past;
-
     return head;
-
 }
 
+//This will replace a char within our list with a string. 
 node *replaceChar(node *head, char key, char *str) {
 
 	node* tempHead = NULL;
@@ -154,7 +153,6 @@ node *replaceChar(node *head, char key, char *str) {
 			if(key == present->data) {
 
 				if (head == present) {
-					
 					//Lets free what we want to replace
 					head = present->next;
 					node* headHolder = present->next;
@@ -205,7 +203,7 @@ node *replaceChar(node *head, char key, char *str) {
 					tempCopy2 = tempCopy2->next;
 					tempCopy = tempCopy->next;
 				}
-				
+
        			tempCopy->next = present;
        			//We need to move the past along!
        			past = tempCopy;
@@ -218,10 +216,7 @@ node *replaceChar(node *head, char key, char *str) {
 
 		}
 		return head;
-
 	}
-
-
 }
 
 
@@ -235,22 +230,14 @@ int main(int argc, char **argv) {
 	node *head = NULL;
 	node *temp;
 
-	//This is a loop to find all arguments passed to main.
-	//for (i = 0; i < argc; i++)
-	//	printf("argv[%d]: %s\n", i, argv[i]);
-
 	FILE *file;
 	//We use argv[1] since thats the filename passed from main.
 	file = fopen(argv[1], "r");
 	//Lets grab that first string.
 	fscanf(file, "%s", firstInput);
 	head = stringToList(firstInput);
-	
 	//Lets get the rest of the input.
 	while((c = getc(file)) != EOF) {
-
-		//printf("%c", c);
-
 		//We use a nice elegant switch here!
 		switch(c) {
 			case '@':
